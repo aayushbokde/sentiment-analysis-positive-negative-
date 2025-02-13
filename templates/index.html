@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Review Sentiment Analysis</h1>
+        <form method="POST" action="/predict">
+            <textarea name="review" rows="4" cols="50" placeholder="Enter your movie review here..." required></textarea>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        
+        {% if prediction_text %}
+        <div class="result">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
